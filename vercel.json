@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    { "source": "/api/manifest", "destination": "/api/manifest" },
+    { "source": "/api/privacy", "destination": "/api/privacy" },
+    { "source": "/api/terms", "destination": "/api/terms" },
+    { "source": "/api/account", "destination": "/api/account" },
+    { "source": "/manifest.json", "destination": "/manifest.json" },
+    { "source": "/.well-known/assetlinks.json", "destination": "/public/.well-known/assetlinks.json" },
+    { "source": "/(.*)", "destination": "/public/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    }
+  ]
+}

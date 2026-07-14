@@ -1,0 +1,60 @@
+[build]
+  command = "node build.mjs"
+  publish = "public"
+  functions = "api"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# API function redirects — must come before the catch-all
+[[redirects]]
+  from = "/api/account"
+  to = "/.netlify/functions/account"
+  status = 200
+
+[[redirects]]
+  from = "/api/manifest"
+  to = "/.netlify/functions/manifest"
+  status = 200
+
+[[redirects]]
+  from = "/api/privacy"
+  to = "/.netlify/functions/privacy"
+  status = 200
+
+[[redirects]]
+  from = "/api/terms"
+  to = "/.netlify/functions/terms"
+  status = 200
+
+# Static manifest (for PWABuilder/Bubblewrap discovery)
+[[redirects]]
+  from = "/manifest.json"
+  to = "/manifest.json"
+  status = 200
+
+# Asset links for TWA verification
+[[redirects]]
+  from = "/.well-known/assetlinks.json"
+  to = "/.well-known/assetlinks.json"
+  status = 200
+  force = true
+
+# SPA fallback — serve index.html for all other routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/.well-known/assetlinks.json"
+  [headers.values]
+    Content-Type = "application/json"

@@ -1,0 +1,52 @@
+{
+  "packageId": "com.stopguard.monitor",
+  "host": "stopguard.netlify.app",
+  "name": "StopGuard — Traffic Stop Rights Monitor",
+  "launcherName": "StopGuard",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "themeColor": "#0d7377",
+  "themeColorDark": "#0a0a0f",
+  "navigationColor": "#0d7377",
+  "navigationColorDark": "#0a0a0f",
+  "navigationDividerColor": "#0d7377",
+  "navigationDividerColorDark": "#0a0a0f",
+  "backgroundColor": "#0a0a0f",
+  "enableNotifications": false,
+  "enableSubscriptions": true,
+  "startUrl": "/",
+  "iconUrl": "https://stopguard.netlify.app/icon-512.png",
+  "maskableIconUrl": "https://stopguard.netlify.app/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/tmp/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [
+    {
+      "name": "Start Recording",
+      "shortName": "Record",
+      "url": "/?action=record",
+      "iconUrl": "https://stopguard.netlify.app/icon-192.png"
+    },
+    {
+      "name": "Know Your Rights",
+      "shortName": "Rights",
+      "url": "/?tab=rights",
+      "iconUrl": "https://stopguard.netlify.app/icon-192.png"
+    }
+  ],
+  "generatorSignature": "StopGuard",
+  "webManifestUrl": "https://stopguard.netlify.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": false,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://stopguard.netlify.app/",
+  "minSdkVersion": 21,
+  "_comment": "Replace 'stopguard.app' with your actual deployed Vercel URL. Update signingKey path to your real keystore location."
+}
