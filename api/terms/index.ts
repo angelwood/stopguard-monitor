@@ -1,7 +1,5 @@
-// StopGuard Terms of Service — Netlify serverless function
-import type { Handler, HandlerEvent, HandlerContext, HandlerResponse } from "@netlify/functions";
-
-export const handler: Handler = async (event: HandlerEvent, context: HandlerContext): Promise<HandlerResponse> => {
+// StopGuard Terms of Service — Vercel format
+export default function handler(_req: any, res: any) {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,9 +49,6 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
 <p>Questions about these Terms: legal@stopguard.app</p>
 </body>
 </html>`;
-  return {
-    statusCode: 200,
-    headers: { "Content-Type": "text/html; charset=utf-8" },
-    body: html,
-  };
-};
+  res.setHeader("Content-Type", "text/html; charset=utf-8");
+  res.status(200).send(html);
+}
