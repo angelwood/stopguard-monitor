@@ -1,4 +1,7 @@
-export default function handler(_req: any, res: any) {
+// StopGuard PWA Manifest API — Netlify serverless function
+import type { Handler, HandlerEvent, HandlerContext, HandlerResponse } from "@netlify/functions";
+
+export const handler: Handler = async (event: HandlerEvent, context: HandlerContext): Promise<HandlerResponse> => {
   const manifest = {
     id: "/?source=pwa",
     name: "StopGuard — Traffic Stop Rights Monitor",
@@ -38,7 +41,14 @@ export default function handler(_req: any, res: any) {
       enctype: "multipart/form-data",
       params: { title: "title", text: "text", url: "url" },
     },
+    prefer_related_applications: false,
+    related_applications: [],
+    handle_links: "not-preferred",
   };
-  res.setHeader("Content-Type", "application/manifest+json");
-  res.status(200).json(manifest);
-}
+
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "application/manifest+json" },
+    body: JSON.stringify(manifest, null, 2),
+  };
+};

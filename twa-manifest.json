@@ -1,5 +1,5 @@
 {
-  "packageId": "com.stopguard.monitor",
+  "packageId": "app.stopguard.twa",
   "host": "stopguard.netlify.app",
   "name": "StopGuard — Traffic Stop Rights Monitor",
   "launcherName": "StopGuard",
@@ -19,8 +19,10 @@
   "maskableIconUrl": "https://stopguard.netlify.app/icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
-    "path": "/tmp/android.keystore",
-    "alias": "android"
+    "path": "/home/ubuntu/stopguard-monitor/stopguard.keystore",
+    "alias": "stopguard",
+    "password": "StopGuard2026!",
+    "keyPassword": "StopGuard2026!"
   },
   "appVersionName": "1.0.0",
   "appVersionCode": 1,

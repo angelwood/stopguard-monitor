@@ -8,7 +8,8 @@
     "start": "node dev-server.mjs"
   },
   "dependencies": {
-    "preact": "^10.24.0"
+    "preact": "^10.24.0",
+    "@netlify/functions": "^2.0.0"
   },
   "devDependencies": {
     "esbuild": "^0.28.1"

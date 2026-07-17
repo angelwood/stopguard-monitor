@@ -1,4 +1,7 @@
-export default function handler(_req: any, res: any) {
+// StopGuard Privacy Policy — Netlify serverless function
+import type { Handler, HandlerEvent, HandlerContext, HandlerResponse } from "@netlify/functions";
+
+export const handler: Handler = async (event: HandlerEvent, context: HandlerContext): Promise<HandlerResponse> => {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,6 +100,9 @@ export default function handler(_req: any, res: any) {
 <p>For privacy questions or data requests: privacy@stopguard.app</p>
 </body>
 </html>`;
-  res.setHeader("Content-Type", "text/html; charset=utf-8");
-  res.status(200).send(html);
-}
+  return {
+    statusCode: 200,
+    headers: { "Content-Type": "text/html; charset=utf-8" },
+    body: html,
+  };
+};

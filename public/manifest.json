@@ -97,5 +97,8 @@
       "text": "text",
       "url": "url"
     }
-  }
+  },
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "handle_links": "not-preferred"
 }
